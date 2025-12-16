@@ -3,57 +3,74 @@ This is a fully functional web-based Form Builder and Management System built us
 It allows admins to create, edit, duplicate, and delete forms, while users can fill out forms and submit responses. Admins can view, analyze, and export responses in CSV format.
 This project is ideal for anyone looking to build dynamic, no-code forms for surveys, feedback, or data collection.
 
-Features
-Admin Features
-Create fully customizable forms with:
-Text fields
-textareas
-Radio buttons
-Checkboxes
-Dropdowns
-Add multiple fields dynamically with drag-and-drop reordering
-Remove unwanted fields instantly
-Edit existing forms with prefilled data
-Duplicate forms in a single click
-Delete forms safely
-View all responses for each form
-Export responses in CSV format
-User Features
-Access forms via a clean and responsive interface
-Fill out forms with multiple field types
-Submit responses seamlessly
-Forms are mobile-friendly and accessible
-Tech Stack
-Frontend: HTML5, CSS3, JavaScript
-Backend: PHP 7+
-Database: MySQL
-Server: XAMPP (Apache + MySQL)
-Other: Drag-and-drop JS for field ordering
+Folder structure
+form-builder/
+│
+├── db.php                # Database connection
+├── index.php             # List all forms
+├── create_form.php       # Create new form
+├── edit_form.php         # Edit existing form
+├── delete_form.php       # Delete form
+├── view_form.php         # User form view & submission
+├── save_form.php         # Save new or edited forms
+├── save_response.php     # Save user responses
+├── view_responses.php    # Admin view responses
+├── export_csv.php        # Export responses as CSV
+├── form_builder_db.sql   # Database structure
+└── assets/
+     ├── style.css        # CSS for responsive layout
+     └── script.js        # JS for dynamic fields & drag-drop
 
+Step 1: Start XAMPP
+Open XAMPP Control Panel.
+Start Apache (web server) and MySQL (database).
+Make sure both are running (green indicator).
 
-Installation Instructions
-Clone the repository
-git clone https://github.com/iampros/form-builder.git
+Step 2: Place the Project in XAMPP
+Go to your XAMPP installation folder (usually C:\xampp\htdocs on Windows).
+Copy your project folder (form_builder) into htdocs:
+C:\xampp\htdocs\form_builder
 
-Copy the project folder to XAMPP
-C:\xampp\htdocs\form-builder
+Step 3: Import the Database
+Open your web browser and go to:
+http://localhost/phpmyadmin/
 
-Import the database
-Open phpMyAdmin → Create database: form_builder_db
-Import the SQL file: form_builder_db.sql (included in repo)
-Start XAMPP
-Start Apache and MySQL
-Access the project
-http://localhost/form-builder/index.php
+Create a new database:
+Click New on the left panel
+Name it: form_builder_db
+Collation: utf8_general_ci
+Click Create
+Import the SQL file:
+Click on the database form_builder_db in phpMyAdmin
+Go to the Import tab
+Click Choose File and select form_builder_db.sql (provided in your project)
+Click Go
+You should see a message: Import has been successfully finished
+
+Step 4: Configure Database Connection
+Open db.php in your project folder.
+Make sure the credentials match XAMPP defaults:
+$servername = "localhost";
+$username = "root";
+$password = ""; // leave empty for XAMPP
+$dbname = "form_builder_db";
+✅ Default XAMPP MySQL username is root with no password.
+
+Step 5: Run the Project
+Open your browser and go to:
+http://localhost/form_builder/index.php
+You should see the Form Management Dashboard.
+From here, you can:
+Create new form
+Edit / Duplicate / Delete forms
+View responses
+To test as a user:
 
 Usage Instructions
 Admin Panel
 Create Form: Click “Create New Form” → Add fields dynamically → Save
 Edit Form: Click “Edit” → Update fields, labels, or order → Save
 Duplicate Form: Click “Duplicate” → New copy is created
-Delete Form: Click “Delete” → Confirm → Form removed
-View Responses: Click “Responses” → View user submissions → Export CSV
-User Interaction
-Go to a specific form: view_form.php?id=FORM_ID
-Fill out the fields → Submit
-Admin will see responses immediately in the dashboard
+
+
+
