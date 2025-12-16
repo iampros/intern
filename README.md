@@ -33,7 +33,7 @@ Other: Drag-and-drop JS for field ordering
 
 Installation Instructions
 Clone the repository
-git clone https://github.com/yourusername/form-builder.git
+git clone https://github.com/iampros/form-builder.git
 
 Copy the project folder to XAMPP
 C:\xampp\htdocs\form-builder
